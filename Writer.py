@@ -4,9 +4,9 @@ import RGBConversions
 import pickle
 
 # If you want to questionably round the image, set this to True
-ROUND_VALUES = True
+ROUND_VALUES = False
 # If you want to questionably compress the image, set this to True
-COMPRESS_VALUES = False
+COMPRESS_VALUES = True
 
 
 # Round values to the intensity
@@ -41,7 +41,4 @@ def copy_image(image_path, name):
     with open(name, "wb") as f:
         json_string = json.dumps(values)
         pickle.dump(json_string, f)
-        f.close()
-    with open("json_raw.json", "w") as f:
-        json.dump(values, f)
         f.close()
