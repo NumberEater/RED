@@ -26,3 +26,4 @@ def read(image_path):
         else:
             x += 1
     img.save("{0}.png".format(image_path))
+    img.show()
