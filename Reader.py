@@ -15,7 +15,11 @@ def read(image_path):
     for i in range(len(load[1])):
         if len(load[1][i]) == 1:
             load[1][i] = load[1][i] + load[1][i] + load[1][i] + load[1][i] + load[1][i] + load[1][i]
-        img.putpixel((x, y), RGBConversions.hex_to_rgb(load[1][i]))
+        try:
+            img.putpixel((x, y), RGBConversions.hex_to_rgb(load[1][i]))
+        except IndexError:
+            print("something went wrong IndexError")
+            exit(-1)
         if x == load[0][0] - 1:
             x = 0
             y += 1
