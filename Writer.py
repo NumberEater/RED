@@ -6,7 +6,7 @@ import pickle
 # If you want to questionably round the image, set this to True
 ROUND_VALUES = False
 # If you want to questionably compress the image, set this to True
-COMPRESS_VALUES = True
+COMPRESS_VALUES = False
 
 
 # Round values to the intensity
