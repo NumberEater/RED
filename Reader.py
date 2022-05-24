@@ -4,7 +4,7 @@ import RGBConversions
 import pickle
 
 
-def read(image_path):
+def convert(image_path):
     with open(image_path, "rb") as f:
         load = pickle.load(f)
         load = json.loads(load)
@@ -26,4 +26,3 @@ def read(image_path):
         else:
             x += 1
     img.save("{0}.png".format(image_path))
-    img.show()

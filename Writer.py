@@ -2,6 +2,7 @@ from PIL import Image
 import json
 import RGBConversions
 import pickle
+from threading import Thread
 
 # If you want to questionably round the image, set this to True
 ROUND_VALUES = False
@@ -20,7 +21,6 @@ def copy_image(image_path, name):
 
     values = [image.size, values]
 
-    # Convert RGB to hex
     for i in range(len(values[1])):
         if ROUND_VALUES:  # Rounding function
             if values[1][i][0] > 200:
