@@ -1,2 +1,4 @@
-./__pycache__
-./TestImages
+__pycache__/
+TestImages/
+.idea/
+.DS_Store/
