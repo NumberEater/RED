@@ -1,7 +1,4 @@
-import Reader
-import Writer
-import REDReader
-from threading import Thread
+from Scripts import Writer, Reader, REDReader
 
 
 def main():
