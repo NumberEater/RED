@@ -1,10 +1,11 @@
 import Reader
 import Writer
 import REDReader
+from threading import Thread
 
 
 def main():
-    print("RED file format\n")
+    print("RED Utilities\n")
     print("1) Convert to RED")
     print("2) Convert to PNG")
     print("3) Show in RED Reader")
@@ -22,7 +23,7 @@ def main():
         image_path = input("Image to show: ")
         REDReader.show_image(image_path)
     else:
-        image_path = input("Image: ")
+        image_path = input("Image:")
         Writer.copy_image(image_path, "output.red")
         REDReader.show_image("output.red")
 

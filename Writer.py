@@ -2,7 +2,6 @@ from PIL import Image
 import json
 import RGBConversions
 import pickle
-from threading import Thread
 
 # If you want to questionably round the image, set this to True
 ROUND_VALUES = False
