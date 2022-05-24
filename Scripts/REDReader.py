@@ -1,7 +1,7 @@
 import pygame
 import json
 import pickle
-import RGBConversions
+from Scripts import RGBConversions
 from threading import Thread
 
 

@@ -1,6 +1,6 @@
 from PIL import Image
 import json
-import RGBConversions
+from Scripts import RGBConversions
 import pickle
 
 # If you want to questionably round the image, set this to True

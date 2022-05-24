@@ -1,6 +1,6 @@
 import json
 from PIL import Image
-import RGBConversions
+from Scripts import RGBConversions
 import pickle
 
 
