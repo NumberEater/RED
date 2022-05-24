@@ -8,3 +8,7 @@ I added a new script to Application.py that allows you to view the image while s
 Future Goals:
 
 I want to split into 4 or even 8 threads. Also I would like to make the conversions multi-threaded.
+
+Requirements:
+
+The only requirement that isn't included with python 3.8 is pillow.
