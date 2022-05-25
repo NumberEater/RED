@@ -31,7 +31,7 @@ def show_image(image_path):
 
     if load[0][0] > 1920 or load[0][1] > 1080:
         load = lower_resolution(load, 4)
-        print("Image too big, lowering resolution by a factor of 1.5")
+        print("Image too big, lowering resolution by a factor of 4")
     elif load[0][0] > 1200 or load[0][1] > 900:
         load = lower_resolution(load, 2)
         print("Image too big, lowering resolution by a factor of 2")
