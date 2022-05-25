@@ -9,18 +9,18 @@ def calculate_index(x, y, width):
     output += x
     return output
 
-def lower_resolution(load):
+def lower_resolution(load, factor):
     x = 0
     y = 0
-    revised_load = [[round(load[0][0] / 2), round(load[0][1] / 2)], []]
+    revised_load = [[round(load[0][0] / factor), round(load[0][1] / factor)], []]
     for i in range(len(load[1])):
         try:
             revised_load[1].append(load[1][calculate_index(x, y, load[0][0])])
-            if x < load[0][0] - 2:
-                x += 2
+            if x < load[0][0] - factor:
+                x += factor
             else:
                 x = 0
-                y += 2
+                y += factor
         except:
             break
     return revised_load
@@ -87,11 +87,14 @@ def show_image(image_path):
         f.close()
 
 
-    if load[0][0] > 1200 or load[0][1] > 900:
-        load = lower_resolution(load)
-        SCREEN_SIZE = WIDTH, HEIGHT = (load[0][0], load[0][1])
-    else:
-        SCREEN_SIZE = WIDTH, HEIGHT = (load[0][0], load[0][1])
+    if load[0][0] > 1920 or load[0][1] > 1080:
+        load = lower_resolution(load, 4)
+        print("Image too big, lowering resolution by a factor of 4")
+    elif load[0][0] > 1200 or load[0][1] > 900:
+        load = lower_resolution(load, 2)
+        print("Image too big, lowering resolution by a factor of 2")
+
+    SCREEN_SIZE = WIDTH, HEIGHT = (load[0][0], load[0][1])
 
     # Pygame stuff
     pygame.init()
@@ -99,8 +102,6 @@ def show_image(image_path):
     pygame.display.set_caption('RED Reader')
     fps = pygame.time.Clock()
     paused = False
-
-    lower_resolution(load)
 
     t1 = Thread(target=show_half_1, args=(load, screen))
     t2 = Thread(target=show_half_2, args=(load, screen))
