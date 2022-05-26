@@ -1,13 +1,16 @@
 # RED
 This is a file encryption/format/interpretation called RED. It's a terrible format for images. RED files are usually about 30,000 times the size of the original image. They are encoded one pixel at a time and all sorts of conversions are done throughout the process. I never recommend using this image format.
 
-# Update:
+# File Info:
 
-I added a new script to Application.py that allows you to view the image while still in RED format. The script uses 4 threads because it would take a really long time without multi-threading.
+The main file is Application.py. That file acts as a hub for the different scripts that the applicaion uses. The three main components are the Reader, Writer, and REDReader. Reader reads the RED and converts it to PNG. Writer reads the JPG and converts it to RED. REDReader is what allows you to view RED files. Without that, the RED format wouldn't be considered as a format. My main focus for optimizations and updates is REDReader.
 
 # Future Goals:
 
-I want to split into 8 threads. Also I would like to make the conversions multi-threaded.
+* 8 threaded rendering
+* RED editing in REDReader
+* File size optimizations
+* Multi-threaded conversions
 
 # Requirements:
 
