@@ -1,7 +1,7 @@
 import pygame
 import json
 import pickle
-from Scripts import PlacementThreadFunctions
+from Scripts import PlacementThreadFunctions, Logging
 from threading import Thread
 
 
@@ -24,17 +24,18 @@ def lower_resolution(load, factor):
 
 def show_image(image_path):
     image_showing = False
+    REDReader_logger = Logging.Logger(Logging.Mode.MODE_ERROR)
     with open(image_path, "rb") as f:
         load = pickle.load(f)
         load = json.loads(load)
         f.close()
 
     if load[0][0] > 1920 or load[0][1] > 1080:
-        load = lower_resolution(load, 4)
-        print("Image too big, lowering resolution by a factor of 4")
+        load = lower_resolution(load, 3)
+        REDReader_logger.Info("Image is too big to display. Resolution is 1/3")
     elif load[0][0] > 1200 or load[0][1] > 900:
         load = lower_resolution(load, 2)
-        print("Image too big, lowering resolution by a factor of 2")
+        REDReader_logger.Info("Image is too big to display. Resolution is 1/2")
 
     SCREEN_SIZE = (load[0][0], load[0][1])
 
