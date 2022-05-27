@@ -19,11 +19,11 @@ def main():
         image_path = askopenfilename()
         Reader.convert(image_path)
     elif choice == "3":
-        image_path = askopenfilename()
+        image_path = askopenfilename(filetypes=[("RED Files", "*.red")])
         REDReader.show_image(image_path)
     else:
-        image_path = input("Image: ")
-        Writer.copy_image(image_path, "output.red")
+        image_path = askopenfilename(filetypes=[("JPEG Files", "*.jpeg"), ("JPG Files", "*.jpg")])
+        Writer.copy_image(image_path)
         REDReader.show_image("output.red")
 
 
