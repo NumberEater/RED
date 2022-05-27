@@ -1,24 +1,25 @@
 from Scripts import Writer, Reader, REDReader
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename  # Tkinter is used for the file dialogue
 
 
 def main():
-    print("RED Utilities\n")
+    print("\nRED Utilities\n")
     print("1) Convert to RED")
     print("2) Convert to PNG")
     print("3) Show in RED Reader")
     print("4) Convert and Show")
     choice = input(">>> ")
+    Tk().withdraw()
 
     if choice == "1":
-        image_path = input("Image name: ")
-        image_output_name = input("Output name: ")
-        Writer.copy_image(image_path, image_output_name)
+        image_path = askopenfilename()
+        Writer.copy_image(image_path)
     elif choice == "2":
-        image_path = input("Image to convert: ")
+        image_path = askopenfilename()
         Reader.convert(image_path)
     elif choice == "3":
-        image_path = input("Image to show: ")
-
+        image_path = askopenfilename()
         REDReader.show_image(image_path)
     else:
         image_path = input("Image: ")
@@ -26,4 +27,5 @@ def main():
         REDReader.show_image("output.red")
 
 
-main()
+while True:
+    main()
