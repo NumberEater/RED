@@ -5,18 +5,16 @@ import pickle
 
 
 def copy_image(image_path):
-    writer_logger = Logging.Logger(Logging.Mode.MODE_ERROR)
     image = Image.open(image_path, "r")
-    values = list(image.getdata())
+    values1 = list(image.getdata())
 
-    values = [image.size, values]
+    values1 = [image.size, values1]
 
-    for i in range(len(values[1])):
-        hex_value = RGBConversions.rgb_to_hex(values[1][i])
-        values[1][i] = hex_value
+    for i in range(len(values1[1])):
+        hex_value = RGBConversions.rgb_to_hex(values1[1][i])
+        values1[1][i] = hex_value
 
     with open("output.red", "wb") as f:
-        json_string = json.dumps(values)
+        json_string = json.dumps(values1)
         pickle.dump(json_string, f)
-        writer_logger.Info("Saved as output.red")
         f.close()
