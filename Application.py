@@ -27,5 +27,4 @@ def main():
         REDReader.show_image("output.red")
 
 
-while True:
-    main()
+main()
